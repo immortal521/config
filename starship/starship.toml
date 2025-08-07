@@ -1,0 +1,80 @@
+# ~/.config/starship.toml
+
+format = """\
+[┏\\[ ](#7eb8da)$username\
+[ from  ](#7eb8da)$hostname\
+[\\]](#7eb8da)$time$memory_usage$battery$cmd_duration
+[┣](#7eb8da)$directory$git_branch
+[┗━►](#7eb8da) \
+"""
+
+# Use custom format
+add_newline = true
+
+[status]
+symbol = '🔴 '
+success_symbol = ""
+format = '[\[$symbol$status\]]($style)'
+map_symbol = true
+disabled = false
+
+# ─── PROMPT SYMBOL ─────────────────────────────
+[character]
+success_symbol = "[#](yellow)"
+error_symbol = "[✘](bold red)"
+
+# ─── TIME ───────────────────────────────────────
+[time]
+style = "#7eb8da"
+disabled = false
+format = "[\\[]($style)[$time]($style)[\\]]($style)"
+time_format = "%y/%m/%d@%H:%M:%S"
+
+# ─── USER / HOST ────────────────────────────────
+[username]
+show_always = true
+format = "[$user](#7eb8da)"
+
+[hostname]
+ssh_only = false
+format = "[$hostname](#73b8da)"
+
+# ─── BATTERY ────────────────────────────────────
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+format = "[\\[]($style)[${symbol}${percentage}]($style)[\\]]($style)"
+
+[[battery.display]]
+threshold = 30
+style = "#FF5722"
+
+[[battery.display]]
+threshold = 100
+style = "#6dfb72"
+
+# ─── EXECUTION TIME ─────────────────────────────
+[cmd_duration]
+min_time = 1
+show_milliseconds = true
+format = "[\\[]($style)[⏱ $duration]($style)[\\]]($style)"
+style = "#BE9DDF"
+
+# ─── PATH ───────────────────────────────────────
+[directory]
+truncation_length = 8
+fish_style_pwd_dir_length = 2
+format = "[\\[](#FFA5D8)[ $path](#FFA5D8)[\\]](#FFA5D8)"
+
+# ─── GIT ────────────────────────────────────────
+[git_branch]
+ignore_branches = ["main", "master"]
+format = "[\\[](#FFA5D8)[ $branch ≡](#FFA5D8)[\\]](#FFA5D8)"
+
+[memory_usage]
+threshold = 1
+disabled = false
+format = "[\\[]($style)[ RAM:${ram}]($style)[\\]]($style)"
+style = "#BE9DDF"
+
