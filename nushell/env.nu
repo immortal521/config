@@ -37,4 +37,4 @@ $env.PROMPT_COMMAND_RIGHT = $env.PROMPT_COMMAND_RIGHT? | default {||
 
 # starship init nu | save -f ~/.config/nushell/tools/starship/init.nu
 
-zoxide init nushell | save -f ~/.config/nushell/tools/zoxide.nu
+zoxide init nushell | save -f tools/zoxide.nu

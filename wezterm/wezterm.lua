@@ -100,7 +100,7 @@ config.mouse_bindings = {
 -------------------- 窗口居中 --------------------
 wezterm.on("gui-startup", function(cmd)
 	local screen = wezterm.gui.screens().active
-	local width, height = screen.width * 0.875, screen.height * 0.875
+	local width, height = screen.width * 0.725, screen.height * 0.725
 	local tab, pane, window = wezterm.mux.spawn_window(cmd or {
 		position = {
 			x = (screen.width - width) / 2,

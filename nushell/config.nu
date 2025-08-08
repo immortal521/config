@@ -879,6 +879,23 @@ def "proxy check" [] {
   }
 }
 
+def "config update" [] {
+  let old_dir = (pwd)
+
+  cd ~/.config
+
+  print "🔄 Updating main repo and submodules..."
+
+  git pull --recurse-submodules
+  git submodule update --remote --merge
+
+  print "📦 Submodule status:"
+  git submodule status
+
+  # 回到原目录
+  cd $old_dir
+}
+
 def --env y [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
 	yazi ...$args --cwd-file $tmp
@@ -894,25 +911,29 @@ chcp 65001 | save NUL
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
-# use ~/.config/nushell/tools/starship/init.nu
-source ~/.config/nushell/tools/zoxide.nu
-# source ~/.config/nushell/completions/adb.nu
-# source ~/.config/nushell/completions/cargo.nu
-# source ~/.config/nushell/completions/curl.nu
-# source ~/.config/nushell/completions/fastboot.nu
-# source ~/.config/nushell/completions/flutter.nu
-# source ~/.config/nushell/completions/git.nu
-# source ~/.config/nushell/completions/gradlew.nu
-# source ~/.config/nushell/completions/make.nu
-# source ~/.config/nushell/completions/mvn.nu
-# source ~/.config/nushell/completions/mysql.nu
-# source ~/.config/nushell/completions/npm.nu
-# source ~/.config/nushell/completions/pnpm.nu
-# source ~/.config/nushell/completions/rustup.nu
-# source ~/.config/nushell/completions/scoop.nu
-# source ~/.config/nushell/completions/ssh.nu
-# source ~/.config/nushell/completions/yarn-v4.nu
-# source ~/.config/nushell/completions/zoxide.nu
+source tools/zoxide.nu
+
+# completions
+source completions/adb.nu
+source completions/cargo.nu
+source completions/curl.nu
+source completions/fastboot.nu
+source completions/flutter.nu
+source completions/git.nu
+source completions/gradlew.nu
+source completions/make.nu
+source completions/mvn.nu
+source completions/mysql.nu
+source completions/npm.nu
+source completions/pnpm.nu
+source completions/rustup.nu
+source completions/scoop.nu
+source completions/ssh.nu
+source completions/yarn-v4.nu
+source completions/zoxide.nu
+
+# theme
+source themes\tokyo-storm.nu
 
 alias nide = neovide
 alias ll = ls -l
