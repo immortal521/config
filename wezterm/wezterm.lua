@@ -18,7 +18,7 @@ config.inactive_pane_hsb = {
 
 -- 设置字体和窗口大小
 config.font = wezterm.font("Maple Mono NF CN")
-config.font_size = 14
+config.font_size = 12
 config.initial_cols = 140
 config.initial_rows = 30
 
@@ -100,7 +100,7 @@ config.mouse_bindings = {
 -------------------- 窗口居中 --------------------
 wezterm.on("gui-startup", function(cmd)
 	local screen = wezterm.gui.screens().active
-	local width, height = screen.width * 0.725, screen.height * 0.725
+	local width, height = screen.width * 0.8, screen.height * 0.8
 	local tab, pane, window = wezterm.mux.spawn_window(cmd or {
 		position = {
 			x = (screen.width - width) / 2,

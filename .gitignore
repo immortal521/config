@@ -3,3 +3,8 @@ nushell/history.sqlite3-wal
 jgit
 nushell/history.sqlite3-shm
 nushell/history.sqlite3
+pnpm
+scoop
+.nuxt/devtools
+enchant
+.nuxtrc
