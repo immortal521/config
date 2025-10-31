@@ -112,7 +112,7 @@ wezterm.on("gui-startup", function(cmd)
 end)
 
 -- 设置窗口透明度
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.90
 config.macos_window_background_blur = 10
 -- config.background = {
 --   {

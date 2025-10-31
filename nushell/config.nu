@@ -938,3 +938,4 @@ source themes\tokyo-storm.nu
 alias nide = neovide
 alias ll = ls -l
 
+alias n = nvim
